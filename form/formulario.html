@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmar Asistencia - Boda de María y Juan</title>
+    <link rel="stylesheet" href="../css/form.css">
+</head>
+<body>
+    <main class="formulario-container">
+        <h1 class="formulario__titulo">Confirma tu asistencia</h1>
+        <form class="formulario" action="procesar_formulario.php" method="POST">
+            <div class="formulario__grupo">
+                <label class="formulario__etiqueta" for="nombre">Nombre:</label>
+                <input class="formulario__input" type="text" id="nombre" name="nombre" required>
+            </div>
+            <div class="formulario__grupo">
+                <label class="formulario__etiqueta" for="email">Email:</label>
+                <input class="formulario__input" type="email" id="email" name="email" required>
+            </div>
+            <div class="formulario__grupo">
+                <label class="formulario__etiqueta" for="asistencia">¿Asistirás?</label>
+                <select class="formulario__select" id="asistencia" name="asistencia" required>
+                    <option value="">Selecciona una opción</option>
+                    <option value="si">Sí, asistiré</option>
+                    <option value="no">No podré asistir</option>
+                </select>
+            </div>
+            <div class="formulario__grupo">
+                <label class="formulario__etiqueta" for="invitados">Número de invitados:</label>
+                <input class="formulario__input" type="number" id="invitados" name="invitados" min="1" max="5">
+            </div>
+            <div class="formulario__grupo">
+                <label class="formulario__etiqueta" for="mensaje">Mensaje para los novios:</label>
+                <textarea class="formulario__textarea" id="mensaje" name="mensaje" rows="4"></textarea>
+            </div>
+            <button class="formulario__boton" type="submit">Enviar confirmación</button>
+        </form>
+        <a href="../index.html" class="formulario__volver">Volver a la invitación</a>
+    </main>
+</body>
+</html>

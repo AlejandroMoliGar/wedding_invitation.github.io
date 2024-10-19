@@ -1,0 +1,86 @@
+/* Variables */
+:root {
+    --color-primario: #d4a373;
+    --color-secundario: #f5e5e5;
+    --color-texto: #333;
+    --color-fondo: #fff;
+    --fuente-principal: 'Arial', sans-serif;
+}
+
+/* Estilos base */
+body {
+    font-family: var(--fuente-principal);
+    background-color: var(--color-secundario);
+    color: var(--color-texto);
+    line-height: 1.6;
+    margin: 0;
+    padding: 20px;
+}
+
+/* Componente: Invitación */
+.invitacion {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: var(--color-fondo);
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.invitacion__encabezado {
+    margin-bottom: 30px;
+}
+
+.invitacion__titulo {
+    color: var(--color-primario);
+    font-size: 2.5em;
+    margin: 0 0 10px;
+}
+
+.invitacion__subtitulo {
+    font-size: 1.2em;
+    margin: 0;
+}
+
+.invitacion__fecha {
+    font-size: 1.5em;
+    margin: 20px 0;
+}
+
+.invitacion__detalles {
+    margin: 30px 0;
+}
+
+.invitacion__lista {
+    list-style-type: none;
+    padding: 0;
+}
+
+.invitacion__pie {
+    margin-top: 30px;
+}
+
+/* Componente: Botón */
+.boton {
+    display: inline-block;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.boton--primario {
+    background-color: var(--color-primario);
+    color: var(--color-fondo);
+}
+
+.boton--primario:hover {
+    background-color: #c39268;
+}
+
+/* Utilidades */
+.text-center {
+    text-align: center;
+}
