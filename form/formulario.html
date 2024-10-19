@@ -9,7 +9,7 @@
 <body>
     <main class="formulario-container">
         <h1 class="formulario__titulo">Confirma tu asistencia</h1>
-        <form class="formulario" action="procesar_formulario.php" method="POST">
+        <form class="formulario" action="procesar_formulario.php" method="POST" id="formularioAsistencia">
             <div class="formulario__grupo">
                 <label class="formulario__etiqueta" for="nombre">Nombre:</label>
                 <input class="formulario__input" type="text" id="nombre" name="nombre" required>
@@ -36,7 +36,33 @@
             </div>
             <button class="formulario__boton" type="submit">Enviar confirmación</button>
         </form>
+        <div id="mensajeRespuesta" class="mensaje-respuesta"></div>
         <a href="../index.html" class="formulario__volver">Volver a la invitación</a>
     </main>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+    $(document).ready(function() {
+        $('#formularioAsistencia').on('submit', function(e) {
+            e.preventDefault();
+            $.ajax({
+                type: 'POST',
+                url: 'procesar_formulario.php',
+                data: $(this).serialize(),
+                dataType: 'json',
+                success: function(response) {
+                    if(response.success) {
+                        $('#mensajeRespuesta').html('<p class="exito">' + response.message + '</p>');
+                        $('#formularioAsistencia')[0].reset();
+                    } else {
+                        $('#mensajeRespuesta').html('<p class="error">' + response.message + '</p>');
+                    }
+                },
+                error: function() {
+                    $('#mensajeRespuesta').html('<p class="error">Hubo un error al procesar la solicitud. Por favor, inténtalo de nuevo más tarde.</p>');
+                }
+            });
+        });
+    });
+    </script>
 </body>
 </html>
