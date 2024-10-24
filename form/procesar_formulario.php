@@ -1,6 +1,17 @@
 <?php
+// Desactivar la salida de errores al navegador
+ini_set('display_errors', 0);
+ini_set('display_startup_errors', 0);
+error_reporting(E_ALL);
+
+// Iniciar el búfer de salida
+ob_start();
+
 // Incluir el archivo de conexión
 require_once '../DB/conx.php';
+
+// Asegurarse de que no haya salida antes del JSON
+ob_clean();
 
 header('Content-Type: application/json');
 
@@ -42,4 +53,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 } else {
     echo json_encode(['success' => false, 'message' => 'Acceso no autorizado.']);
 }
+
+// Asegurarse de que no haya salida después del JSON
+ob_end_flush();
 ?>

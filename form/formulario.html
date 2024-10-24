@@ -57,7 +57,8 @@
                         $('#mensajeRespuesta').html('<p class="error">' + response.message + '</p>');
                     }
                 },
-                error: function() {
+                error: function(jqXHR, textStatus, errorThrown) {
+                    console.log("Error en la respuesta:", jqXHR.responseText);
                     $('#mensajeRespuesta').html('<p class="error">Hubo un error al procesar la solicitud. Por favor, inténtalo de nuevo más tarde.</p>');
                 }
             });
